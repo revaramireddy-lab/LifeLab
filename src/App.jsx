@@ -10,6 +10,8 @@ export default function App() {
     health: 80,
     career: "Entry Level",
     year: 22,
+    relationships: 50,
+    skills: [],
   });
 
   const startGame = () => {
@@ -18,30 +20,188 @@ export default function App() {
 
   const makeChoice = (choice) => {
     if (choice === "college") {
-      setStats({ ...stats, money: stats.money - 30000, year: 25 });
-      setGameState("age25_college");
+      setStats({ 
+        ...stats, 
+        money: stats.money - 30000, 
+        year: 23,
+        skills: [...stats.skills, "Bachelor's Degree"]
+      });
+      setGameState("college_year1");
     } else if (choice === "work") {
-      setStats({ ...stats, money: stats.money + 40000, career: "Manager", year: 25 });
-      setGameState("age25_work");
+      setStats({ 
+        ...stats, 
+        money: stats.money + 40000, 
+        career: "Junior Developer", 
+        year: 23,
+        skills: [...stats.skills, "Work Experience"]
+      });
+      setGameState("work_year1");
     } else if (choice === "travel") {
-      setStats({ ...stats, money: stats.money - 20000, happiness: stats.happiness + 20, year: 25 });
-      setGameState("age25_travel");
-    } else if (choice === "startup") {
-      setStats({ ...stats, money: stats.money + 100000, career: "Entrepreneur", happiness: stats.happiness + 15, year: 30 });
-      setGameState("age30_startup");
-    } else if (choice === "stability") {
-      setStats({ ...stats, money: stats.money + 60000, health: stats.health + 10, career: "Senior Manager", year: 30 });
-      setGameState("age30_stability");
-    } else if (choice === "slowdown") {
-      setStats({ ...stats, happiness: stats.happiness + 25, health: stats.health + 20, year: 30 });
-      setGameState("age30_slowdown");
-    } else if (choice === "retire") {
-      setGameState("ending_success");
-    } else if (choice === "continue") {
-      setGameState("age40");
+      setStats({ 
+        ...stats, 
+        money: stats.money - 20000, 
+        happiness: stats.happiness + 20, 
+        year: 23,
+        relationships: stats.relationships + 15,
+        skills: [...stats.skills, "Travel Experience"]
+      });
+      setGameState("travel_year1");
+    } else if (choice === "college_internship") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 15000, 
+        skills: [...stats.skills, "Internship"],
+        year: 24
+      });
+      setGameState("age24_college");
+    } else if (choice === "college_party") {
+      setStats({ 
+        ...stats, 
+        happiness: stats.happiness + 15, 
+        relationships: stats.relationships + 20,
+        health: stats.health - 10,
+        year: 24
+      });
+      setGameState("age24_college");
+    } else if (choice === "work_promotion") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 60000, 
+        career: "Senior Developer",
+        year: 24
+      });
+      setGameState("age24_work");
+    } else if (choice === "work_switch") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 30000, 
+        career: "Product Manager",
+        happiness: stats.happiness + 10,
+        year: 24
+      });
+      setGameState("age24_work");
+    } else if (choice === "travel_teach") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 25000, 
+        happiness: stats.happiness + 10,
+        skills: [...stats.skills, "Teaching"],
+        year: 24
+      });
+      setGameState("age24_travel");
+    } else if (choice === "travel_backpack") {
+      setStats({ 
+        ...stats, 
+        money: stats.money - 15000, 
+        happiness: stats.happiness + 25,
+        relationships: stats.relationships + 15,
+        year: 24
+      });
+      setGameState("age24_travel");
+    } else if (choice === "grad_startup") {
+      setStats({ 
+        ...stats, 
+        money: stats.money - 20000, 
+        career: "Startup Founder",
+        happiness: stats.happiness + 15,
+        year: 26
+      });
+      setGameState("age26_startup");
+    } else if (choice === "grad_corporate") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 80000, 
+        career: "Manager",
+        year: 26
+      });
+      setGameState("age26_corporate");
+    } else if (choice === "startup_success") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 200000, 
+        happiness: stats.happiness + 20,
+        career: "CEO",
+        year: 28
+      });
+      setGameState("age28_startup_success");
+    } else if (choice === "startup_fail") {
+      setStats({ 
+        ...stats, 
+        money: stats.money - 30000, 
+        happiness: stats.happiness - 15,
+        health: stats.health - 20,
+        year: 28
+      });
+      setGameState("age28_startup_fail");
+    } else if (choice === "corporate_climb") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 150000, 
+        career: "Director",
+        year: 28
+      });
+      setGameState("age28_corporate");
+    } else if (choice === "corporate_quit") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 50000, 
+        happiness: stats.happiness + 25,
+        health: stats.health + 15,
+        year: 28
+      });
+      setGameState("age28_quit");
+    } else if (choice === "marriage") {
+      setStats({ 
+        ...stats, 
+        relationships: 100,
+        happiness: stats.happiness + 30,
+        year: 30
+      });
+      setGameState("age30_married");
+    } else if (choice === "single") {
+      setStats({ 
+        ...stats, 
+        happiness: stats.happiness + 10,
+        year: 30
+      });
+      setGameState("age30_single");
+    } else if (choice === "kids") {
+      setStats({ 
+        ...stats, 
+        money: stats.money - 100000, 
+        happiness: stats.happiness + 25,
+        health: stats.health - 15,
+        year: 32
+      });
+      setGameState("age32_kids");
+    } else if (choice === "no_kids") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 50000, 
+        happiness: stats.happiness + 15,
+        year: 32
+      });
+      setGameState("age32_no_kids");
+    } else if (choice === "retire_early") {
+      setGameState("ending_early_retirement");
+    } else if (choice === "keep_working") {
+      setStats({ 
+        ...stats, 
+        money: stats.money + 200000,
+        year: 40
+      });
+      setGameState("age40_final");
     } else if (choice === "restart") {
       setGameState("start");
-      setStats({ money: 50000, happiness: 75, health: 80, career: "Entry Level", year: 22 });
+      setStats({ 
+        money: 50000, 
+        happiness: 75, 
+        health: 80, 
+        career: "Entry Level", 
+        year: 22,
+        relationships: 50,
+        skills: []
+      });
     }
   };
 
@@ -50,7 +210,8 @@ export default function App() {
       {gameState === "start" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h1>LIFE SIMULATOR</h1>
-          <p>Make choices that shape your future. Your decisions matter.</p>
+          <p>Make choices that shape your future. Every decision matters.</p>
+          <p style={{ fontSize: "0.9rem", color: "#888" }}>Your choices will determine your career, relationships, and happiness.</p>
           <button className="big-btn" onClick={startGame}>START GAME</button>
         </motion.div>
       )}
@@ -58,108 +219,229 @@ export default function App() {
       {gameState === "age22" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h2>Age 22 - Just Starting Out</h2>
-          <p>You're fresh out of high school with $50,000 and no debt. What's your next move?</p>
+          <p>You just graduated high school. You have $50,000 saved up. What's your next move?</p>
           <div className="choices">
-            <button onClick={() => makeChoice("college")}>Go to College (Cost: $30k)</button>
-            <button onClick={() => makeChoice("work")}>Start Working (Earn: $40k)</button>
-            <button onClick={() => makeChoice("travel")}>Travel the World (Cost: $20k)</button>
+            <button onClick={() => makeChoice("college")}>📚 Go to College</button>
+            <button onClick={() => makeChoice("work")}>💼 Start Working</button>
+            <button onClick={() => makeChoice("travel")}>✈️ Travel the World</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age25_college" && (
+      {gameState === "college_year1" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 25 - College Graduate</h2>
-          <p>You graduated! Now you have a degree but less money. What's next?</p>
+          <h2>Age 23 - First Year of College</h2>
+          <p>You're in your first year of college. Money is tight but you're learning a lot.</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("startup")}>Start a Startup (Risky!)</button>
-            <button onClick={() => makeChoice("stability")}>Get a Corporate Job</button>
-            <button onClick={() => makeChoice("slowdown")}>Focus on Happiness</button>
+            <button onClick={() => makeChoice("college_internship")}>🏢 Take a Summer Internship</button>
+            <button onClick={() => makeChoice("college_party")}>🎉 Enjoy College Life</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age25_work" && (
+      {gameState === "age24_college" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 25 - Working Since 22</h2>
-          <p>You've been climbing the corporate ladder. You're doing well financially!</p>
+          <h2>Age 24 - Near Graduation</h2>
+          <p>You're finishing your degree. What comes next?</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("startup")}>Start a Startup (Risk it all!)</button>
-            <button onClick={() => makeChoice("stability")}>Keep the Safe Job</button>
-            <button onClick={() => makeChoice("slowdown")}>Relax and Enjoy Life</button>
+            <button onClick={() => makeChoice("grad_startup")}>🚀 Start Your Own Business</button>
+            <button onClick={() => makeChoice("grad_corporate")}>🏢 Join a Big Company</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age25_travel" && (
+      {gameState === "work_year1" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 25 - Traveler & Wanderer</h2>
-          <p>You spent 3 years exploring the world. You're happy but low on cash.</p>
+          <h2>Age 23 - Your First Year Working</h2>
+          <p>You've landed a solid job and making good money already.</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("stability")}>Get a Stable Job Now</button>
-            <button onClick={() => makeChoice("slowdown")}>Keep Traveling (Find Work Abroad)</button>
-            <button onClick={() => makeChoice("startup")}>Start Remote Business</button>
+            <button onClick={() => makeChoice("work_promotion")}>📈 Climb the Corporate Ladder</button>
+            <button onClick={() => makeChoice("work_switch")}>🔄 Switch to a Better Company</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age30_startup" && (
+      {gameState === "age24_work" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 30 - Startup Success!</h2>
-          <p>Your startup took off! You're wealthy and happy. The future looks bright!</p>
+          <h2>Age 24 - Career Success</h2>
+          <p>You're doing well at work. Promotions and opportunities are coming your way.</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("retire")}>Retire Early & Travel</button>
-            <button onClick={() => makeChoice("continue")}>Keep Growing the Business</button>
+            <button onClick={() => makeChoice("grad_startup")}>🚀 Take the Risk - Start a Business</button>
+            <button onClick={() => makeChoice("grad_corporate")}>📚 Keep Growing in Corporate</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age30_stability" && (
+      {gameState === "travel_year1" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 30 - Stable & Secure</h2>
-          <p>You've built a comfortable life with a good job, savings, and stability.</p>
+          <h2>Age 23 - A Year of Travel</h2>
+          <p>You've been exploring the world and making new friends everywhere.</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("retire")}>Start Planning Retirement</button>
-            <button onClick={() => makeChoice("continue")}>Push for More Growth</button>
+            <button onClick={() => makeChoice("travel_teach")}>📚 Teach English Abroad & Make Money</button>
+            <button onClick={() => makeChoice("travel_backpack")}>🎒 Continue Backpacking Adventures</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age30_slowdown" && (
+      {gameState === "age24_travel" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 30 - Living Your Best Life</h2>
-          <p>You prioritized happiness and health. Life is good, though money is tight.</p>
+          <h2>Age 24 - Still Traveling</h2>
+          <p>You've seen more of the world than most. Time to settle down or continue?</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("stability")}>Find a Good Paying Job</button>
-            <button onClick={() => makeChoice("continue")}>Keep Living Simply</button>
+            <button onClick={() => makeChoice("grad_corporate")}>🏢 Get a Real Job</button>
+            <button onClick={() => makeChoice("grad_startup")}>🚀 Start Digital Nomad Business</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "age40" && (
+      {gameState === "age26_startup" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>Age 40 - The Long Game</h2>
-          <p>A decade has passed. You've accumulated wisdom and experience.</p>
+          <h2>Age 26 - Startup Founder</h2>
+          <p>You took the leap! Your startup is in its early days. Will you succeed or fail?</p>
           <Stats stats={stats} />
           <div className="choices">
-            <button onClick={() => makeChoice("retire")}>Retire Now</button>
-            <button onClick={() => makeChoice("continue")}>Work Until 50</button>
+            <button onClick={() => makeChoice("startup_success")}>🎯 The Startup Takes Off!</button>
+            <button onClick={() => makeChoice("startup_fail")}>📉 The Startup Struggles</button>
           </div>
         </motion.div>
       )}
 
-      {gameState === "ending_success" && (
+      {gameState === "age26_corporate" && (
         <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2>🎉 You Did It!</h2>
-          <p>Congratulations! You've built a life and now you're ready for the next chapter.</p>
+          <h2>Age 26 - Corporate Career</h2>
+          <p>You're climbing the corporate ladder. Your career is on track.</p>
           <Stats stats={stats} />
-          <p className="final-message">Your choices shaped your destiny. Every decision mattered.</p>
+          <div className="choices">
+            <button onClick={() => makeChoice("corporate_climb")}>📈 Pursue Leadership & Power</button>
+            <button onClick={() => makeChoice("corporate_quit")}>🏝️ Quit the Rat Race</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age28_startup_success" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>🎉 Age 28 - Startup Success!</h2>
+          <p>Your startup exploded! You're now worth millions. Life is good!</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("marriage")}>💍 Find Love & Settle Down</button>
+            <button onClick={() => makeChoice("single")}>🎊 Enjoy the Single Life</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age28_startup_fail" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 28 - Startup Failed</h2>
+          <p>Your startup didn't make it. But you learned a lot. Time for a new chapter.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("grad_corporate")}>💼 Get a Corporate Job</button>
+            <button onClick={() => makeChoice("startup_success")}>🚀 Try Another Startup</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age28_corporate" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 28 - Top of the Game</h2>
+          <p>You're a director at a major company. Money and respect are flowing in.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("marriage")}>💍 Find Love & Settle Down</button>
+            <button onClick={() => makeChoice("single")}>🎊 Keep Living for Yourself</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age28_quit" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 28 - Freedom!</h2>
+          <p>You quit the corporate world. You're happier, healthier, and ready for what's next.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("marriage")}>💍 Find a Partner</button>
+            <button onClick={() => makeChoice("single")}>🌍 Travel & Explore</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age30_married" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 30 - Married!</h2>
+          <p>You've found someone special and got married. Life feels complete in a new way.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("kids")}>👶 Start a Family</button>
+            <button onClick={() => makeChoice("no_kids")}>✨ Enjoy Marriage Without Kids</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age30_single" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 30 - Living Solo</h2>
+          <p>You're thriving as a single person. Full freedom and independence.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("retire_early")}>🏝️ Plan Retirement</button>
+            <button onClick={() => makeChoice("keep_working")}>💪 Push for More Success</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age32_kids" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 32 - Parent Life</h2>
+          <p>You have kids now. Life is busier, but more meaningful. Parenthood is rewarding.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("keep_working")}>💼 Work Hard for Your Family</button>
+            <button onClick={() => makeChoice("retire_early")}>🏡 Focus on Family Time</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age32_no_kids" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 32 - Child-Free</h2>
+          <p>You chose not to have kids. More freedom and flexibility in life.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("keep_working")}>🚀 Pursue Ambitious Goals</button>
+            <button onClick={() => makeChoice("retire_early")}>🌴 Start the Good Life</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "age40_final" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>Age 40 - Peak of Life</h2>
+          <p>A decade later, you've accumulated wisdom, wealth, and experience. Life is good.</p>
+          <Stats stats={stats} />
+          <div className="choices">
+            <button onClick={() => makeChoice("retire_early")}>🏝️ Retire in Style</button>
+          </div>
+        </motion.div>
+      )}
+
+      {gameState === "ending_early_retirement" && (
+        <motion.div className="screen" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <h2>🎉 You Did It! Retirement!</h2>
+          <p>Congratulations! You've built a life and earned your retirement. Enjoy the peace.</p>
+          <Stats stats={stats} />
+          <p className="final-message">
+            Your journey was unique. Every choice you made shaped who you became. 
+            {stats.money > 300000 && " You ended with great wealth!"}
+            {stats.happiness > 90 && " You found true happiness!"}
+            {stats.relationships === 100 && " You found love!"}
+          </p>
           <button className="big-btn" onClick={() => makeChoice("restart")}>PLAY AGAIN</button>
         </motion.div>
       )}
@@ -173,8 +455,12 @@ function Stats({ stats }) {
       <div className="stat">💰 Money: ${stats.money.toLocaleString()}</div>
       <div className="stat">😊 Happiness: {stats.happiness}%</div>
       <div className="stat">❤️ Health: {stats.health}%</div>
+      <div className="stat">💑 Relationships: {stats.relationships}%</div>
       <div className="stat">💼 Career: {stats.career}</div>
       <div className="stat">📅 Age: {stats.year}</div>
+      {stats.skills.length > 0 && (
+        <div className="stat">🎯 Skills: {stats.skills.join(", ")}</div>
+      )}
     </div>
   );
 }
